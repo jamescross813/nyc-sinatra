@@ -1,6 +1,6 @@
- <h1><%=@figure.name%></h1>
+  <h1><%=@figure.name%></h1>
     <h2><%@figure.titles.each do |t|%>
-        <%="#{t.name}"%>
+        <%="#{t.name}"%><br>
       <%end%>
     </h2>
     <h2><%@figure.landmarks.each do |l|%>
@@ -8,5 +8,5 @@
       <%end%>
     </h2>
 
-<a class="button" href="/Figures/<%= @figure.id %>/edit">Edit Figure</a>
-<a class="button" href="/Figures">Figures</a>
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<a class="button" href="/figures">Figures</a>

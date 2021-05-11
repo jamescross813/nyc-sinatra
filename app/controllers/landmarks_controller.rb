@@ -5,7 +5,6 @@ class LandmarksController < ApplicationController
   end
 
   get "/landmarks/new" do
-    @landmark = Landmark.create(name: params[:name], year_completed: params[:year_completed])
     erb :'/landmarks/new'
   end
 
@@ -16,6 +15,7 @@ class LandmarksController < ApplicationController
    end
 
    get "/landmarks/:id/edit" do
+
      @landmark = Landmark.find(params[:id])
      erb :'/landmarks/edit'
    end
