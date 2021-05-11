@@ -1,6 +1,8 @@
 class FiguresController < ApplicationController
 
   get '/figures' do
+    @figures = Figure.all
+    
     erb :'/figures/index'
   end
 
@@ -13,12 +15,9 @@ class FiguresController < ApplicationController
 
     if !params[:figure][:title_ids].nil?
       params[:figure][:title_ids].each do |t|
+      
         @figure.titles << Title.find(t)
       end
-    end
-
-    if !params[:title][:name].strip.empty?
-      @figure.titles << Title.create(name: params[:title][:name])
     end
 
     if !params[:figure][:landmark_ids].nil?
@@ -52,12 +51,9 @@ class FiguresController < ApplicationController
 
     if !params[:figure][:title_ids].nil?
       params[:figure][:title_ids].each do |title_id|
+        
         @figure.titles << Title.find(title_id)
       end
-    end
-
-    if !params[:title][:name].strip.empty?
-      @figure.titles << Title.create(name: params[:title][:name])
     end
 
     if !params[:figure][:landmark_ids].nil?
